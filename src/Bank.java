@@ -6,13 +6,6 @@ import java.time.Instant;
 
      float bankBalance = 0;
     private static Bank bankObject;
-   private static float  totalCommission(){
-       //TODO how to add all
-       return totalCommission();
-     }
-     public static float updateTotalCommission(){
-       return totalCommission();
-     }
 
     public static Bank getInstance(){
         if (bankObject == null){
@@ -20,6 +13,15 @@ import java.time.Instant;
         }
         return  bankObject;
     }
+
+     private static float  totalCommission(){
+         //TODO how to add all
+
+         return totalCommission();
+     }
+     public static float updateTotalCommission(){
+         return totalCommission();
+     }
 
     private Logger logService;
     private Client[] clients;
@@ -54,14 +56,15 @@ import java.time.Instant;
         }
 
     }
-
-    void removeClient(int id) {
+        //TODO REVIEW
+    void removeClient(Client client) {
         for (int i = 0; i <clients.length ; i++) {
-            if (clients[i].getId() == id){
-                clients[i] = null;
-                Log log = new Log(Instant.now().toEpochMilli(), clients[i].getId(),"the client removed",0);
+            clients.equals(client);
+            clients[i] = null;
+
+            Log log = new Log(Instant.now().toEpochMilli(), clients[i].getId(),"the client removed",0);
             Logger.log(log);
-            }
+
         }
     }
 
@@ -77,7 +80,6 @@ import java.time.Instant;
 
     }
 
-// TODO
     void setBalance(){
         bankBalance += totalCommission();
     }
