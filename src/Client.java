@@ -74,14 +74,14 @@ public abstract class Client {
         return null;
     }
 
-    void removeAccount(int id) {
+    void removeAccount(Account account) {
         for (int i = 0; i < accounts.length; i++) {
-            if (accounts[i].getId() == id) {
+           accounts.equals(account);
+
                 balance = accounts[i].getBalance() + balance;
                 accounts[i] = null;
                 Log log = new Log(Instant.now().toEpochMilli(), id, "Account Removed", balance);
                 Logger.log(log);
-            }
         }
     }
 
